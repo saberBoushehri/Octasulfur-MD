@@ -1,0 +1,38 @@
+define			= -DPOSRES 
+integrator              = md
+dt                      = 0.001
+nsteps                  = 500000
+nstxout                 = 0000
+nstvout                 = 0000
+nstfout                 = 0000
+nstxout-compressed      = 25000
+nstcalcenergy           = 100
+nstenergy               = 1000
+nstlog                  = 1000
+;
+cutoff-scheme           = Verlet
+nstlist                 = 20
+rlist                   = 1.2
+vdwtype                 = Cut-off
+vdw-modifier            = Force-switch
+rvdw_switch             = 1.0
+rvdw                    = 1.2
+coulombtype             = pme
+rcoulomb                = 1.2
+;
+tcoupl                  = Nose-Hoover
+tc_grps                 = MEMB NON-MEMB
+tau_t                   = 1.0 1.0
+ref_t                   = 298 298
+;
+pcoupl                  = No
+
+
+;
+constraints             = h-bonds
+constraint_algorithm    = LINCS
+continuation            = yes
+;
+nstcomm                 = 100
+comm_mode               = linear
+comm_grps               = MEMB NON-MEMB
