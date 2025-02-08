@@ -1,0 +1,241 @@
+integrator              = md
+dt                      = 0.002
+nsteps                  = 50000000
+nstxout                 = 5000000 
+nstvout                 = 5000000 
+nstfout                 = 5000000
+nstxout-compressed      = 5000 
+nstcalcenergy           = 100
+nstenergy               = 1000
+nstlog                  = 1000
+;
+cutoff-scheme           = Verlet
+nstlist                 = 20
+rlist                   = 1.2
+vdwtype                 = Cut-off
+vdw-modifier            = Force-switch
+rvdw_switch             = 1.0
+rvdw                    = 1.2
+coulombtype             = pme
+rcoulomb                = 1.2
+;
+tcoupl                  = Nose-Hoover
+tc_grps                 = MEMB NON-MEMB
+tau_t                   = 1.0 1.0
+ref_t                   = 298 298
+;
+pcoupl                  = Parrinello-Rahman
+pcoupltype              = semiisotropic
+tau_p                   = 5.0
+compressibility         = 4.5e-5  4.5e-5
+ref_p                   = 1.0     1.0
+;
+constraints             = h-bonds
+constraint_algorithm    = LINCS
+continuation            = yes
+;
+nstcomm                 = 100
+comm_mode               = linear
+comm_grps               = ;MEMB NON-MEMB
+	    ; COM PULLING          
+pull                     = yes
+pull-nstxout             = 50
+pull-nstfout             = 50
+; Number of pull groups 
+pull-ngroups             = 7 ; Nresist + membrane
+; Number of pull coordinates
+pull-ncoords             = 18 ; Nresist-ones: resist-mem z-distance  2xNresist-ones: flat bottom X-axis  2xNresit: flat bottom potential  Y-axis
+pull-xout-average	 = no
+pull-fout-average	 = no
+pull-group1-name         = MEMB
+pull-group1-pbcatom      =  5132
+pull-pbc-ref-prev-step-com = yes
+;pull-cylinder-r          = 1.5
+; group definitions
+pull-group2-name = GSH_GSH_1
+pull-group3-name = GSH_GSH_2
+pull-group4-name = GSH_GSH_3
+pull-group5-name = GSH_GSH_4
+pull-group6-name = GSH_GSH_5
+pull-group7-name = GSH_GSH_6
+; memb-resist definitions
+;resist :1
+pull-coord1-type         = umbrella
+pull-coord1-geometry     = distance
+pull-coord1-groups       = 1 2 ; 1=mem other=resist
+pull-coord1-dim          = N N Y
+pull-coord1-start        = no
+pull-coord1-init         = 3.992970
+pull-coord1-rate         = 0
+pull-coord1-k            = 1000
+
+;resist :2
+pull-coord2-type         = umbrella
+pull-coord2-geometry     = distance
+pull-coord2-groups       = 1 3 ; 1=mem other=resist
+pull-coord2-dim          = N N Y
+pull-coord2-start        = no
+pull-coord2-init         = 1.342970
+pull-coord2-rate         = 0
+pull-coord2-k            = 1000
+
+;resist :3
+pull-coord3-type         = umbrella
+pull-coord3-geometry     = distance
+pull-coord3-groups       = 1 4 ; 1=mem other=resist
+pull-coord3-dim          = N N Y
+pull-coord3-start        = no
+pull-coord3-init         = 1.307030
+pull-coord3-rate         = 0
+pull-coord3-k            = 1000
+
+;resist :4
+pull-coord4-type         = umbrella
+pull-coord4-geometry     = distance
+pull-coord4-groups       = 1 5 ; 1=mem other=resist
+pull-coord4-dim          = N N Y
+pull-coord4-start        = no
+pull-coord4-init         = 2.667970
+pull-coord4-rate         = 0
+pull-coord4-k            = 1000
+
+;resist :5
+pull-coord5-type         = umbrella
+pull-coord5-geometry     = distance
+pull-coord5-groups       = 1 6 ; 1=mem other=resist
+pull-coord5-dim          = N N Y
+pull-coord5-start        = no
+pull-coord5-init         = 0.017970
+pull-coord5-rate         = 0
+pull-coord5-k            = 1000
+
+;resist :6
+pull-coord6-type         = umbrella
+pull-coord6-geometry     = distance
+pull-coord6-groups       = 1 7 ; 1=mem other=resist
+pull-coord6-dim          = N N Y
+pull-coord6-start        = no
+pull-coord6-init         = 2.632030
+pull-coord6-rate         = 0
+pull-coord6-k            = 1000
+
+; y-axis (upper limit)
+pull-coord7-type         = flat-bottom
+pull-coord7-init         = 1.000000 ; 
+pull-coord7-geometry     = direction
+pull-coord7-groups       = 0 2 ; 1=membrane  other=resist
+pull-coord7-dim          = N Y N
+pull-coord7-vec          = 0 1 0
+pull-coord7-start        = yes
+pull-coord7-rate         = 0
+pull-coord7-k            = 2000
+; y-axis (upper limit)
+pull-coord8-type         = flat-bottom
+pull-coord8-init         = 1.000000 ; 
+pull-coord8-geometry     = direction
+pull-coord8-groups       = 0 3 ; 1=membrane  other=resist
+pull-coord8-dim          = N Y N
+pull-coord8-vec          = 0 1 0
+pull-coord8-start        = yes
+pull-coord8-rate         = 0
+pull-coord8-k            = 2000
+; y-axis (upper limit)
+pull-coord9-type         = flat-bottom
+pull-coord9-init         = 1.000000 ; 
+pull-coord9-geometry     = direction
+pull-coord9-groups       = 0 4 ; 1=membrane  other=resist
+pull-coord9-dim          = N Y N
+pull-coord9-vec          = 0 1 0
+pull-coord9-start        = yes
+pull-coord9-rate         = 0
+pull-coord9-k            = 2000
+; y-axis (upper limit)
+pull-coord10-type         = flat-bottom
+pull-coord10-init         = 1.000000 ; 
+pull-coord10-geometry     = direction
+pull-coord10-groups       = 0 5 ; 1=membrane  other=resist
+pull-coord10-dim          = N Y N
+pull-coord10-vec          = 0 1 0
+pull-coord10-start        = yes
+pull-coord10-rate         = 0
+pull-coord10-k            = 2000
+; y-axis (upper limit)
+pull-coord11-type         = flat-bottom
+pull-coord11-init         = 1.000000 ; 
+pull-coord11-geometry     = direction
+pull-coord11-groups       = 0 6 ; 1=membrane  other=resist
+pull-coord11-dim          = N Y N
+pull-coord11-vec          = 0 1 0
+pull-coord11-start        = yes
+pull-coord11-rate         = 0
+pull-coord11-k            = 2000
+; y-axis (upper limit)
+pull-coord12-type         = flat-bottom
+pull-coord12-init         = 1.000000 ; 
+pull-coord12-geometry     = direction
+pull-coord12-groups       = 0 7 ; 1=membrane  other=resist
+pull-coord12-dim          = N Y N
+pull-coord12-vec          = 0 1 0
+pull-coord12-start        = yes
+pull-coord12-rate         = 0
+pull-coord12-k            = 2000
+; y-axis (lower limit)
+pull-coord13-type         = flat-bottom-high
+pull-coord13-init         = -1.000000 ; 
+pull-coord13-geometry     = direction
+pull-coord13-groups       = 0 2 ; 1=membrane  other=resist
+pull-coord13-dim          = N Y N
+pull-coord13-vec          = 0 1 0
+pull-coord13-start        = yes
+pull-coord13-rate         = 0
+pull-coord13-k            = 2000
+; y-axis (lower limit)
+pull-coord14-type         = flat-bottom-high
+pull-coord14-init         = -1.000000 ; 
+pull-coord14-geometry     = direction
+pull-coord14-groups       = 0 3 ; 1=membrane  other=resist
+pull-coord14-dim          = N Y N
+pull-coord14-vec          = 0 1 0
+pull-coord14-start        = yes
+pull-coord14-rate         = 0
+pull-coord14-k            = 2000
+; y-axis (lower limit)
+pull-coord15-type         = flat-bottom-high
+pull-coord15-init         = -1.000000 ; 
+pull-coord15-geometry     = direction
+pull-coord15-groups       = 0 4 ; 1=membrane  other=resist
+pull-coord15-dim          = N Y N
+pull-coord15-vec          = 0 1 0
+pull-coord15-start        = yes
+pull-coord15-rate         = 0
+pull-coord15-k            = 2000
+; y-axis (lower limit)
+pull-coord16-type         = flat-bottom-high
+pull-coord16-init         = -1.000000 ; 
+pull-coord16-geometry     = direction
+pull-coord16-groups       = 0 5 ; 1=membrane  other=resist
+pull-coord16-dim          = N Y N
+pull-coord16-vec          = 0 1 0
+pull-coord16-start        = yes
+pull-coord16-rate         = 0
+pull-coord16-k            = 2000
+; y-axis (lower limit)
+pull-coord17-type         = flat-bottom-high
+pull-coord17-init         = -1.000000 ; 
+pull-coord17-geometry     = direction
+pull-coord17-groups       = 0 6 ; 1=membrane  other=resist
+pull-coord17-dim          = N Y N
+pull-coord17-vec          = 0 1 0
+pull-coord17-start        = yes
+pull-coord17-rate         = 0
+pull-coord17-k            = 2000
+; y-axis (lower limit)
+pull-coord18-type         = flat-bottom-high
+pull-coord18-init         = -1.000000 ; 
+pull-coord18-geometry     = direction
+pull-coord18-groups       = 0 7 ; 1=membrane  other=resist
+pull-coord18-dim          = N Y N
+pull-coord18-vec          = 0 1 0
+pull-coord18-start        = yes
+pull-coord18-rate         = 0
+pull-coord18-k            = 2000

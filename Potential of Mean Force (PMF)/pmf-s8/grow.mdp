@@ -1,0 +1,48 @@
+define	    = -DPOSRES -DPOSRES_FC_LIPID=100.0 -DDIHRES -DDIHRES_FC=100.0
+integrator              = sd
+dt                      = 0.002
+nsteps                  = 5000
+nstxout                 = 0
+nstvout                 = 0
+nstfout                 = 0
+nstxout-compressed      = 5000
+nstcalcenergy           = 100
+nstenergy               = 1000
+nstlog                  = 1000
+;
+cutoff-scheme           = Verlet
+nstlist                 = 20
+rlist                   = 1.2
+vdwtype                 = Cut-off
+vdw-modifier            = Force-switch
+rvdw_switch             = 1.0
+rvdw                    = 1.2
+coulombtype             = pme
+rcoulomb                = 1.2
+;
+tcoupl                  = no ; ;Nose-Hoover
+tc_grps                 = MEMB NON-MEMB
+tau_t                   = 1.0 1.0
+ref_t                   = 298 298
+;
+pcoupl                  = no
+
+;
+constraints             = h-bonds
+constraint_algorithm    = LINCS
+continuation            = yes
+;
+nstcomm                 = 100
+comm_mode               = linear
+comm_grps               = MEMB NON-MEMB
+
+; gradual turning on of the LJ and Coul of resists
+free-energy = yes
+init-lambda = 0
+delta-lambda = 2e-4
+couple-moltype = MOLNAME
+couple-lambda0 = none ; LJ and Coul turned off at lambda=0
+couple-lambda1 = vdw-q ; LJ and Coul turned on at lambda=1
+sc-alpha = 0.3 ; soft-core stuff to avoid singularities
+sc-sigma = 0.25 ; soft-core stuff
+sc-power = 1 ; soft-core stuff
