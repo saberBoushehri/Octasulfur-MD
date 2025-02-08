@@ -6,3 +6,6 @@ by: Uladzimir Barayeu, Seiryo Ogata, Tsuyoshi Takata, Minkyung Jung, Tetsuro Mat
 ## Equilibrium MD Simulations
 
 ## Potential of Mean Force (PMF)
+
+
+![Alt text](cover-fig.png)
