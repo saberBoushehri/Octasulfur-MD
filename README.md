@@ -8,4 +8,4 @@ by: Uladzimir Barayeu, Seiryo Ogata, Tsuyoshi Takata, Minkyung Jung, Tetsuro Mat
 ## Potential of Mean Force (PMF)
 
 
-![Alt text](cover-fig1.png)
+<!-- ![Alt text](cover-fig1.png) -->
