@@ -67,25 +67,3 @@ do
         rm \#*
     done    
 done 
-
-
-
-
-### gmx make_ndx -f POPC-A-1.gro -o index.ndx
-### name 3 MEMB
-### 2 | 4 | 5 | 6
-### name 7 NON-MEMB
-### gmx genrestr -f POPC-A-1.gro -o posres-Octasulfur.itp
-###
-###
-###
-###
-###
-###
-###
-###
-###
-###
-###
-
-
