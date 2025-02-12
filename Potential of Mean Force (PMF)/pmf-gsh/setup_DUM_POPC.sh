@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# script to setup an US_50ns simulation of a resist in a lipid bilayer, including multiple molecules at the time
-# should run in workstation
-
 start_dir=$( pwd )
 
 Ncolumn=2 # number of resist columns to insert
