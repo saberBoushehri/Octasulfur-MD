@@ -15,6 +15,7 @@ The details are as follows:
 - **GROMACS** is free software, available under the GNU Lesser General Public License 2.1 (LGPL-2.1+) or later. [More info](https://bioexcel.eu/software/licenses/#gromacs)
 - **CHARMM-GUI** is free for academic and governmental use. [More info](https://www.charmm-gui.org/?doc=license_cgui)
 - **CGenFF (CHARMM General Force Field)** is free for academic use as part of the CHARMM project.   <!--  [More info](https://www.charmm.org/cgenff/) -->
+- **Grappa - Machine Learned MM Parameterization** [More info](https://github.com/graeter-group/grappa/tree/main)
 - **VMD (Visual Molecular Dynamics)** is licensed under the University of Illinois Open Source License. [More info](https://www.ks.uiuc.edu/Research/vmd/current/LICENSE.html) 
 - **Python** is licensed under the Python Software Foundation License. [More info](https://docs.python.org/3/license.html)
 - **MDAnalysis** is an object-oriented Python library for analyzing trajectories from molecular dynamics (MD) simulations. [More info](https://github.com/MDAnalysis/mdanalysis/blob/develop/LICENSE)
