@@ -4,8 +4,11 @@
 by: Uladzimir Barayeu, Seiryo Ogata, Tsuyoshi Takata, Minkyung Jung, Tetsuro Matsunaga, Mike Lange, Masanobu Morita, Yuka Unno, Saber Boushehri, Tomoaki Ida, Akira Nishimura, Lorenzo Catti, Takayuki Shimizu, Ryo Ushioda, Takakazu Nakabayashi, Seji Asamitsu, Kazuki Fusegawa, Takashi Suzuki, Takanori Ishida, Naoko Tanda, Yasuo Watanabe, Ryo Yamaguchi, Fumiko Yano, Mieko Arisawa, Albert van der Vliet, Dennis Stuehr, Frauke Gräter, Camilo Aponte-Santamaría, James Olzmann, Marcus Conrad, Tobias P. Dick, Hozumi Motohashi, Michito Yoshizawa, Takaaki Akaike
 
 ## Equilibrium MD Simulations
+Three systems were simulated, each consisting of a POPC lipid bilayer with S₈ molecules, GSH molecules, or both. 
+Simulations were run to study the behavior and interactions of S₈ and GSH in the bilayer, including their positioning and orientation. 
 
 ## Potential of Mean Force (PMF)
+PMFs for S₈ and GSH were calculated using umbrella sampling MD simulations to identify favorable positions across the lipid bilayer.
 
 ## Licensing Information
 
