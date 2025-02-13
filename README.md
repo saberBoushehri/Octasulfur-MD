@@ -17,4 +17,4 @@ The details are as follows:
 - **CGenFF (CHARMM General Force Field)** is free for academic use as part of the CHARMM project.   <!--  [More info](https://www.charmm.org/cgenff/) -->
 - **VMD (Visual Molecular Dynamics)** is licensed under the University of Illinois Open Source License. [More info](https://www.ks.uiuc.edu/Research/vmd/current/LICENSE.html) 
 - **Python** is licensed under the Python Software Foundation License. [More info](https://docs.python.org/3/license.html)
-- **MDAnalysis** is an object-oriented Python library to analyze trajectories from molecular dynamics (MD) simulations. [More info](https://github.com/MDAnalysis/mdanalysis/blob/develop/LICENSE)
+- **MDAnalysis** is an object-oriented Python library for analyzing trajectories from molecular dynamics (MD) simulations. [More info](https://github.com/MDAnalysis/mdanalysis/blob/develop/LICENSE)
