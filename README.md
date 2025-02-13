@@ -14,8 +14,5 @@ The details are as follows:
 
 - **GROMACS** GROMACS is Free Software, available under the GNU Lesser General Public License 2.1 (LGPL-2.1+) or later. [More info](https://bioexcel.eu/software/licenses/#gromacs)
 - **CHARMM-GUI** CHARMM-GUI is free for academic and governmental use. [More info](https://www.charmm-gui.org/?doc=license_cgui)
-- **VMD (Visual Molecular Dynamics)**: Licensed under the **University of Illinois Open Source License**. [More info](https://www.ks.uiuc.edu/Research/vmd/current/LICENSE.html) 
+- **VMD (Visual Molecular Dynamics)**: Licensed under the University of Illinois Open Source License. [More info](https://www.ks.uiuc.edu/Research/vmd/current/LICENSE.html) 
 - **Python** 
-
-<!-- ![Alt text](cover-fig1.png) -->
-
