@@ -7,5 +7,14 @@ by: Uladzimir Barayeu, Seiryo Ogata, Tsuyoshi Takata, Minkyung Jung, Tetsuro Mat
 
 ## Potential of Mean Force (PMF)
 
+## Licensing Information
+
+Our research utilized several well-established molecular dynamics (MD) software tools, each with their own licensing terms. 
+The details are as follows:
+
+- **GROMACS** 
+- **CHARMM-GUI** 
+- **VMD**   
+- **Python** 
 
 <!-- ![Alt text](cover-fig1.png) -->
