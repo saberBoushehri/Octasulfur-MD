@@ -40,7 +40,7 @@ do
         
         {
 	    grep CRYST POPC_162-$replicate.pdb # box size
-	    grep ATOM  $replicate-$rep.pdb # resist atoms
+	    grep ATOM  $replicate-$rep.pdb # mol atoms
 	    grep ATOM  POPC_162-$replicate.pdb # lipids,water,ions
 	} > POPC-overlap-$replicate-$rep.pdb  
 	

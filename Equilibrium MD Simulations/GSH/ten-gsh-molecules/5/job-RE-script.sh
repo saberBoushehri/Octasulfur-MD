@@ -1,15 +1,4 @@
 #!/bin/bash
-#SBATCH -N 1
-#SBATCH -p cascade.p
-#SBATCH --gres=gpu:1
-#SBATCH --mincpus=20
-#SBATCH --time=24:00:00
-#SBATCH --job-name="10gsh5"
-
-module use /hits/sw/its/doserbd/cascade/modules/all
-module load GROMACS/2021-fosscuda-2019b
-
-#rerun MD
 
 START=$(date +"%s")
 
