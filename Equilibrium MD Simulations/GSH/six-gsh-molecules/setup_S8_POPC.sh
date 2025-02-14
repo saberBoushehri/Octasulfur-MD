@@ -2,7 +2,7 @@
 
 start_dir=$( pwd )
 
-Nmol=6 # number of molecules to insert
+Nmol=6 # 6 GSH molecules will be inserted in the system with S8 (six s8 molecules) + POPC bilayer
 output_file="initial-positions.dat"
 
 
