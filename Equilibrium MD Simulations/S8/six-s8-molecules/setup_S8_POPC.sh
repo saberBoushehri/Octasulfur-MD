@@ -30,6 +30,7 @@ do
     
 	for nomol in $(seq 1 $Nmol)
 	do
+		# box size: 7.2 7.2 10.2 
 	    x=$(generate_random_float 0.5 6.5)
 	    y=$(generate_random_float 0.5 6.4)
 	    z=$(generate_random_float 8 9.5)
