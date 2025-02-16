@@ -3,26 +3,18 @@
 # gwham with backward block average 
 # runs on cluster 
 
-#SBATCH -N 1 
-#SBATCH -p cascade.p 
-#SBATCH --mincpus=4
-#SBATCH --time=24:00:00
 
-module use /hits/sw/its/doserbd/cascade/modules/all
-module load GROMACS/2021-fosscuda-2019b
-
-# 1 Create output directory (US_50ns/WHAM) 
+# 1 Create output directory (US_100ns/WHAM) 
 # 2 Get input for gmx wham from all replicates (it.dat, if.dat, coord-sel.dat)
 # 3 Run gmx wham with bootstrapping on the aggregated information (with backward block averaging) 
 
 # PARAMETERS 
 # ----------
-# replace "Nipam" with name of resist as it is specified in the directories in which the simulation was conducted
 
 start_dir=$( pwd )
 D_flat_bottom=0.75 # from this distance lateral XY Flat-bottom potential is turned on
 increment=5000 #ps
-end=100000 #ps                                                  #*********************
+end=100000 #ps      
 
 bilayer=$( echo POPC )
 resist=$( echo GSH )
@@ -32,8 +24,7 @@ max=4.50
 
 
 # CREATE OUTPUT Directory
-outdir=$( echo $start_dir/US_50ns/WHAM )
-# mkdir $outdir                                                  #*********************
+outdir=$( echo $start_dir/US_100ns/WHAM )                                            
 cd $outdir
 pwd
 
@@ -44,7 +35,7 @@ rm coord-sel.dat
 for replicate in "${replicates[@]}"
 do 
 
-	datadir=$( echo $start_dir/US_50ns/$bilayer-$resist-$replicate )
+	datadir=$( echo $start_dir/US_100ns/$bilayer-$resist-$replicate )
 	
 
 	# ---loop over windows---
@@ -91,10 +82,8 @@ do
 done 	
 
 
-# Convergence analysis/Backward block average (run gmx wham for different time windows)
-# 0 ns - 50 ns; 5 ns - 50 ns; ... ; 45 ns - 50 ns 
 
-s=0                                                #*********************
+s=0                                             
 while [ $(( end-s )) -ge 0 ] 
 do
 

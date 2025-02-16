@@ -31,7 +31,7 @@ do
 	if [ $resist = GSH ] ; then molname="GSH" ; fi
 	
 	
-	#bilayer gro
+	# bilayer gro
 	bilayer_gro=$( echo $start_dir/groFiles/$bilayer\_162-$replicate.gro )
 	# bilayer in pdb format
 

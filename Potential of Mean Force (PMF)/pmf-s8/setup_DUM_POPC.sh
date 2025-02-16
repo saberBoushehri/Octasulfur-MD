@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# script to setup an US_50ns simulation of a resist in a lipid bilayer, including multiple molecules at the time
-# should run in workstation
-
 start_dir=$( pwd )
 
 Ncolumn=2 # number of resist columns to insert
@@ -11,12 +8,8 @@ DZsol=1.5 # spacing between resists in a column (size of resist will be added to
 Buffer=1.2 # windows will span the box size minus this distance
 
 
-
-	# === loop over bilayers ===
 for bilayer in POPC
 do
-
-# UPDATE HERE: later necessary for thermostat MEMB and NONMEMB groups
     if [ $bilayer = POPC ] ; then mem_groups=($( echo POPC )) ; Nmemgroups=1 ; fi
     
 
@@ -46,10 +39,6 @@ do
 
 	# combined topology dir (for the moment for POPC and MOLECULE)
 	topdir=$( echo $start_dir/Topology  )
-
-
-	#----- 1) insertion of resists -----
-
 
 	# resist max size
 	gmx editconf -f $resist_gro -d 0 -bt cubic -center 0 0 0  >& out || { cat out; exit 1 ;}
@@ -168,11 +157,7 @@ print w, c, m, x, y, z
 	    
 	    gmx editconf -f $N/system_overlap.pdb  -o $N/system_overlap.gro >& out || { cat out; exit 4 ;}
 	    
-	    
-	    # 1. --- topology of the system ---
-	    # the input topol.top should already contain the resist molecule, lipids, water, ions
-	    # in toppar the itps of the molecules should be included.
-	    # same for all windows (only run for window 0)	    
+ 
 	    if [ $N = 0 ]
 	    then
 
@@ -229,12 +214,7 @@ cat>> toppar/mol.itp <<EOF
 EOF
 
 	    fi # top only for N=0
-	    
 
-# 5 index file
-# two groups for separate temperature coupling: MEMB NON-MEMB
-# new lines to be added later for other bilayers mixtures
-# same for all windows (only run for window 0)
 
 	    if [ $N = 0 ]
 	    then

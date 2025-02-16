@@ -1,7 +1,4 @@
 #!/bin/sh
-# script to do clash removal, energy minimization and equilibration per umbrella
-# should run in cascade
-
 
 start_dir=$( pwd )
 

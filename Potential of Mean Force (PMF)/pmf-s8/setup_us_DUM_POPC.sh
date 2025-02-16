@@ -1,6 +1,4 @@
 #!/bin/sh
-# script to generate the tpr for umbrella sampling, including the pulling groups information
-# runs in workstation
 
 start_dir=$( pwd )
 D_flat_bottom=1.0 # from this distance lateral XY Flat-bottom potential is turned on
@@ -9,10 +7,9 @@ D_flat_bottom=1.0 # from this distance lateral XY Flat-bottom potential is turne
 for bilayer in POPC
 do
     
-# UPDATE HERE: later necessary for thermostat MEMB and NONMEMB groups
     if [ $bilayer = POPC ] ; then mem_groups=($( echo POPC )) ; Nmemgroups=1 ; fi
     
-    for resist in  Octasulfur #Lap  
+    for resist in  Octasulfur 
     do
 
     for replicate in  A B C 
@@ -87,10 +84,6 @@ END { print atidmin}
 ' tmp-center
 	    )
 
-# update index file
-# two groups for separate temperature coupling: MEMB NON-MEMB
-# new lines to be added later for other bilayers mixtures
-# same for all windows (only run for window 0)
 
 if [ $N = 0 ]
 then

@@ -1,15 +1,13 @@
 #!/bin/sh
+
 # script to do clash removal, energy minimization and equilibration per umbrella
-# should run in cascade
-
-
 start_dir=$( pwd )
 
 sed -i "s|PATH|$start_dir|g" "$start_dir/jobscript_eq.sh"
 
 for bilayer in POPC
 do
-	for resist in  GSH #molecule name  
+	for resist in  GSH # name of the molecule   
 	do
 		for replicate in A B C
 		do
@@ -34,7 +32,7 @@ do
 	    		#change window N info in submission script
 	    		sed "s/WINDOW/$N/g" 	$start_dir/jobscript_eq.sh  >  $N/jobscript_eq.sh  
 
-                        sbatch $N/jobscript_eq.sh #--> sbatch */jobscript_eq.sh
+                        sbatch $N/jobscript_eq.sh 
 
 	    		rm -f tmp*  \#*\#  */\#*\# 
 

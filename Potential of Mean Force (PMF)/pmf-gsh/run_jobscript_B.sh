@@ -1,21 +1,10 @@
 #!/bin/sh
 
-#!/bin/bash
-#SBATCH -N 1
-#SBATCH -p cascade.p
-#SBATCH --gres=gpu:1
-#SBATCH --mincpus=20
-#SBATCH --time=24:00:00
-#SBATCH --job-name="BBB"
+export start_dir="/umbrella-sampling/pmf-gsh"
 
-module use /hits/sw/its/doserbd/cascade/modules/all
-module load GROMACS/2021-fosscuda-2019b
-
-export start_dir="/hits/fast/mbm/boushesr/OctaSulfur-S8/umbrella-sampling/grappa-before-retraining"
-
-for i in {0..39}
+for i in {0..52}
 do
-	cd /hits/fast/mbm/boushesr/OctaSulfur-S8/umbrella-sampling/grappa-before-retraining/US_50ns/POPC-Octasulfur-B/${i}
+	cd US_100ns/POPC-Octasulfur-B/${i}
 
 	gmx grompp -f ../grow.mdp -p ../topol.top -c system_overlap.gro -n ../index.ndx -o grow.tpr -r system_overlap.gro -maxwarn 1 
 	gmx mdrun -deffnm grow -dlb yes -ntomp 3 -ntmpi 6 -pme gpu -npme 1 -bonded gpu -nb gpu
