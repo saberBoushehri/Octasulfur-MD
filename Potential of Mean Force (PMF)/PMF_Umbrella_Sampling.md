@@ -62,7 +62,7 @@ gmx grompp -f $start_dir/pr.mdp -p topol.top
 gmx mdrun -deffnm $N/pr
 ```
 
-## 5. Removing Dummy Atoms
+## 5. Removing Dummy Atoms and Running Umbrella Sampling Simulations
 Run the script to remove dummy parameters:
 ```bash
 setup_us_DUM_POPC.sh
