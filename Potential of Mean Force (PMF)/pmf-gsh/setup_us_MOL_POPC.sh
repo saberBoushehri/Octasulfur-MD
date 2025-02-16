@@ -3,11 +3,8 @@
 start_dir=$( pwd )
 D_flat_bottom=1.0 #
 
-
 for bilayer in POPC
 do
-
-    
 
     if [ $bilayer = POPC ] ; then mem_groups=($( echo POPC )) ; Nmemgroups=1 ; fi
     
@@ -16,7 +13,7 @@ do
 	for replicate in A B C
 	do 
 
-	outdir=$( echo $start_dir/US_50ns/$bilayer-$resist-$replicate )
+	outdir=$( echo $start_dir/US_100ns/$bilayer-$resist-$replicate )
 	#mkdir $outdir
 	cd $outdir
 	pwd

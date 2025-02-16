@@ -1,0 +1,17 @@
+Should contain 
+
+Forcefields solvent 
+- TIP3.itp  - SOD.itp  -CLA.itp (if necessary other ions)
+
+Forcefields membrane
+- forcefield.itp -POPC.itp
+
+mol forcefield
+- mol.itp -charmm36_mol.itp
+# If dummy atom was added, mol.itp must contain respective dummy atom forcefield parameters. 
+# Replace mol with name of resist
+
+Topology file
+- topol.top 
+
+

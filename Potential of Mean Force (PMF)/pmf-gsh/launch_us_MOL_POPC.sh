@@ -10,7 +10,7 @@ do
         for replicate in A B C
         do
 
-            dir=$( echo $start_dir/US_50ns/$bilayer-$resist-$replicate )
+            dir=$( echo $start_dir/US_100ns/$bilayer-$resist-$replicate )
             pwd
             # ---loop over windows---
             NWINDOWS=$( grep "Bins-per-molecule-per-column"  $dir/initial-positions.dat | awk ' { print $NF } ' )

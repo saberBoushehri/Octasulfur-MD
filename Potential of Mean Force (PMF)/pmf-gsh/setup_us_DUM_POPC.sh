@@ -1,15 +1,11 @@
 #!/bin/sh
-# script to generate the tpr for umbrella sampling, including the pulling groups information
-# runs in workstation
 
 start_dir=$( pwd )
-D_flat_bottom=1.0 # from this distance lateral XY Flat-bottom potential is turned on
-
+D_flat_bottom=1.0 
 
 for bilayer in POPC
 do
     
-# UPDATE HERE: later necessary for thermostat MEMB and NONMEMB groups
     if [ $bilayer = POPC ] ; then mem_groups=($( echo POPC )) ; Nmemgroups=1 ; fi
     
     for resist in  GSH #Lap  
@@ -18,15 +14,11 @@ do
     for replicate in  A B C 
 	do 
 
-	outdir=$( echo $start_dir/US_50ns/$bilayer-$resist-$replicate )
+	outdir=$( echo $start_dir/US_100ns/$bilayer-$resist-$replicate )
 	cd $outdir
 	
-	#pwd
-	#UPDATE HERE: molecule name
 	if [ $resist = GSH ] ; then molname="GSH" ; fi        
        
-
-	# ---loop over windows---
 	NWINDOWS=$( grep "Bins-per-molecule-per-column"  initial-positions.dat | awk ' { print $NF } ' )
 
 	#loop over windows
@@ -87,11 +79,6 @@ END { print atidmin}
 ' tmp-center
 	    )
 
-# update index file
-# two groups for separate temperature coupling: MEMB NON-MEMB
-# new lines to be added later for other bilayers mixtures
-# same for all windows (only run for window 0)
-
 if [ $N = 0 ]
 then
 
@@ -123,8 +110,6 @@ echo " "
     echo q 
     } | gmx make_ndx -n index.ndx  -f $N/pr.gro  -o   >& out || { cat out; exit 1 ;}
 
-
-
 # index group with umbrellas
 
 molgroup=$( grep "\[" index.ndx | awk ' $2=="'$molname'" {print NR-1 }' )
@@ -137,7 +122,6 @@ molgroup=$( grep "\[" index.ndx | awk ' $2=="'$molname'" {print NR-1 }' )
             
             cat $start_dir/gsh-gsh.ndx index.ndx >> index.ndx
 fi # index file 
-            
                
 # number of resists
 Nresists=$( wc   $N/initial-positions.dat   | awk ' { print $1 } ' )
@@ -147,9 +131,6 @@ Nresists=$( wc   $N/initial-positions.dat   | awk ' { print $1 } ' )
     echo MEMB  | gmx traj -f $gro -s $gro -n index.ndx -com -ox -noy -nox   >& out || { cat out; exit 1 ;}
 COM_mem_Z=$( tail -n 1 coord.xvg  | awk ' { print $2 } ' )
 
-
-
-	    
 # pull section
 #header
 	    cat>$N/pull<<EOF

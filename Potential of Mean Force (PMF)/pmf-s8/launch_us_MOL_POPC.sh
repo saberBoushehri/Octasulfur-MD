@@ -29,7 +29,7 @@ do
                 N=$[N+1]
 
             done # loop over windows
-            # rm -f \#*\#
+            # rm -f \#*\# 
             cd $start_dir
 
         done # loop over replicates

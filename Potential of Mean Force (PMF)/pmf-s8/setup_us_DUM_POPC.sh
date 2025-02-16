@@ -3,7 +3,6 @@
 start_dir=$( pwd )
 D_flat_bottom=1.0 # from this distance lateral XY Flat-bottom potential is turned on
 
-
 for bilayer in POPC
 do
     
@@ -116,8 +115,6 @@ echo " "
     echo q 
     } | gmx make_ndx -n index.ndx  -f $N/pr.gro  -o   >& out || { cat out; exit 1 ;}
 
-
-
 # index group with umbrellas
 
 molgroup=$( grep "\[" index.ndx | awk ' $2=="'$molname'" {print NR-1 }' )
@@ -139,8 +136,6 @@ Nresists=$( wc   $N/initial-positions.dat   | awk ' { print $1 } ' )
 # com of membrane in z axis
     echo MEMB  | gmx traj -f $gro -s $gro -n index.ndx -com -ox -noy -nox   >& out || { cat out; exit 1 ;}
 COM_mem_Z=$( tail -n 1 coord.xvg  | awk ' { print $2 } ' )
-
-
 
 	    
 # pull section
@@ -253,12 +248,7 @@ printf("pull-coord%d-k            = 2000\n", m+1+2*Nmol )
 cat $start_dir/us.mdp $N/pull > $N/us.mdp
 
 gmx grompp -f $N/us.mdp -p topol.top -c $gro  -n index.ndx -o $N/us.tpr   -maxwarn 1  >& $N/out   || { cat $N/out; exit 1 ;}
-
-
-# us runs in the cluster
-	    
-
-	    
+	
 	    rm -f tmp*  \#*\#  */\#*\# 
 
 	    N=$[N+1]

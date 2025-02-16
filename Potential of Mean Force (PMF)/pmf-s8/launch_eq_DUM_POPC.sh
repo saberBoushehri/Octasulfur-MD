@@ -39,7 +39,7 @@ do
 	    		rm -f tmp*  \#*\#  */\#*\# 
 
 			N=$[N+1]
-			done # loop over windows
+			done #  
 	
 		rm -f \#*\# 
 		cd $start_dir

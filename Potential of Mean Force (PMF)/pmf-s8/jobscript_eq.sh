@@ -1,7 +1,5 @@
 #!/bin/bash
 
-export start_dir="/umbrella-sampling/pmf-s8"
-
 gmx grompp -f ../grow.mdp -p ../topol.top -c system_overlap.gro -n ../index.ndx -o grow.tpr -r system_overlap.gro -maxwarn 1 
 gmx mdrun -deffnm grow -dlb yes -ntomp 3 -ntmpi 6 -pme gpu -npme 1 -bonded gpu -nb gpu
 

@@ -7,7 +7,6 @@ DZwin=0.025 # spacing between umbrellas
 DZsol=1.5 # spacing between resists in a column (size of resist will be added to this spacing)
 Buffer=1.2 # windows will span the box size minus this distance
 
-
 for bilayer in POPC
 do
     if [ $bilayer = POPC ] ; then mem_groups=($( echo POPC )) ; Nmemgroups=1 ; fi

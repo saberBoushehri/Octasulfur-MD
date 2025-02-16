@@ -1,10 +1,7 @@
 #!/bin/sh
 
-export start_dir="/umbrella-sampling/pmf-s8"
-
 for i in {0..39}
 do
-	cd /US_50ns/POPC-Octasulfur-C/${i}
 
 	gmx grompp -f ../grow.mdp -p ../topol.top -c system_overlap.gro -n ../index.ndx -o grow.tpr -r system_overlap.gro -maxwarn 1 
 	gmx mdrun -deffnm grow -dlb yes -ntomp 3 -ntmpi 6 -pme gpu -npme 1 -bonded gpu -nb gpu

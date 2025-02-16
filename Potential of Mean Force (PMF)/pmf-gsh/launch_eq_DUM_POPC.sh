@@ -12,7 +12,7 @@ do
 		for replicate in A B C
 		do
 	
-		outdir=$( echo $start_dir/US_50ns/$bilayer-$resist-$replicate )
+		outdir=$( echo $start_dir/US_100ns/$bilayer-$resist-$replicate )
 		cd $outdir
 		pwd
 
