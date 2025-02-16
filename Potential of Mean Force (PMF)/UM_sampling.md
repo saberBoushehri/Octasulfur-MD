@@ -6,13 +6,24 @@ This guide outlines the steps to perform an umbrella sampling simulation to calc
 We start with topology (`top`), force field (`itp`), and structure (`gro`) files from CHARMM-GUI.
 
 ```bash
-gmx editconf -f ligandrm.pdb -o molecule.gro -d 2.0
-
+gmx editconf -f molecule.pdb -o molecule.gro -d 2.0
 gmx grompp -f em.mdp -c molecule.gro -p topol.top -o em.tpr
 gmx mdrun -v -deffnm em
 ```
 
-## 2. **No Dummy Atom Needed for GSH**
+## 2. Adding Dummy Atoms at the Center of the Mass
+To add dummy atoms at the center of mass (COM):
+
+```bash
+COM : gmx traj -f em.gro -s em.tpr -oxt com_atom.pdb -com
+gmx editconf -f em.gro -o em.pdb
+cat em.pdb com_atom.pdb > mol_dum.pdb
+```
+
+Edit mol_dum.pdb by removing unnecessary lines, changing atom names, and tidying up the structure.
+Additionally, update .itp files to include the new atom names.
+
+**No Dummy Atom Needed for GSH**
 This step is skipped if working with GSH.
 
 ## 3. Adding Molecules into the Lipid Bilayer
