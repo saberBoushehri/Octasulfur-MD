@@ -101,6 +101,4 @@ r POPC & a C1 C2 C3 HA HB       # Glycerol
 r POPC & a C21 C22 C23 C24 ...  # Lipid tails
 ```
 
-This structured guide ensures clarity and ease of execution for performing umbrella sampling to compute the PMF. Add this to your GitHub repository for reference and reproducibility!
-
 
