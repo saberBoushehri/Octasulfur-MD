@@ -14,7 +14,7 @@ gmx mdrun -v -deffnm em
 ## 2. Adding a Dummy Atom at the Center of the Ring
 
 We add a dummy atom at the center of the ring to prevent the tail from entering it. This ensures that the ring is not restricted by the tail of a POPC molecule.
-**To add dummy atom:**
+To add dummy atom:
 
 ```bash
 COM : gmx traj -f em.gro -s em.tpr -oxt com_atom.pdb -com
