@@ -1,7 +1,7 @@
 # Molecular dynamics (MD) simulations data of 
 # Mammals produce cyclo-octasulfur to suppress lipid peroxidation and ferroptosis
 
-By: Uladzimir Barayeu, Seiryo Ogata, Tsuyoshi Takata, Minkyung Jung, Tetsuro Matsunaga, Mike Lange, Masanobu Morita, Yuka Unno, Saber Boushehri, Paulius
+By: Uladzimir Barayeu, Seiryo Ogata, Tsuyoshi Takata, Minkyung Jung, Tetsuro Matsunaga, Mike Lange, Masanobu Morita, Yuka Unno, **Saber Boushehri**, Paulius
 Greicius, Tomoaki Ida, Akira Nishimura, Lorenzo Catti, Yuexuan Pan, Tianli Zhang, Takayuki Shimizu, Ryo Ushioda, Takakazu Nakabayashi, Seji Asamitsu, Kazuki
 Fusegawa, Takashi Suzuki, Takanori Ishida, Naoko Tanda, Yasuo Watanabe, Ryo Yamaguchi, Shintaro Noguchi, Eikan Mishima, Fumiko Yano, Mieko Arisawa, Albert
 van der Vliet, Dennis Stuehr, Ning Xia, Huige Li, Bernd Moosmann, Frauke Gräter, Camilo Aponte-Santamaría, James A. Olzmann, Marcus Conrad, Tobias P. Dick, Hozumi Motohashi, Michito Yoshizawa, Takaaki Akaike
